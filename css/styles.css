@@ -146,6 +146,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .card { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 2rem; box-shadow: 0 1px 0 rgba(74,50,41,.03); transition: box-shadow .25s, transform .25s; }
 .card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
 .card p:last-child { margin-bottom: 0; color: var(--muted); }
+.illus { display: block; width: 100%; max-width: 280px; height: auto; margin: -.4rem auto 1rem; }
 .icon { display: grid; place-content: center; width: 52px; height: 52px; border-radius: 50%; background: var(--sage-wash); margin-bottom: 1.2rem; }
 .icon svg { width: 22px; height: 22px; }
 .more { display: inline-block; margin-top: 1rem; font-weight: 600; color: var(--latte-deep); text-decoration: none; border-bottom: 1.5px solid currentColor; }
