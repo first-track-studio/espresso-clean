@@ -6,7 +6,8 @@
   --espresso: #4A3229;      /* wordmark */
   --latte: #987F6C;         /* "clean." */
   --sage: #8A8F76;          /* leaf, sparkle, tagline */
-  --cream: #F8F6F0;         /* page background */
+  --cream: #F8F6F0;         /* the page itself (the "paper") */
+  --backdrop: #DDD2C2;      /* the surface the page sits on, visible on wide screens */
 
   --espresso-deep: #382620;
   --latte-deep: #7E6655;    /* accessible latte for small text */
@@ -31,7 +32,7 @@
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
-  background: var(--cream);
+  background: var(--backdrop);
   color: var(--text);
   font-family: var(--font-body);
   font-size: 1.0625rem;
@@ -47,6 +48,10 @@ h3 { font-size: 1.25rem; }
 p { margin: 0 0 1em; }
 ul, ol { margin: 0; padding: 0; list-style: none; }
 ::selection { background: var(--sand); color: var(--espresso-deep); }
+
+/* The page is a cream "sheet" on a deeper backdrop. Below 1440px wide the
+   sheet fills the screen, so the backdrop only shows on large monitors. */
+.shell { max-width: 1440px; min-height: 100vh; margin-inline: auto; background: var(--cream); box-shadow: 0 0 70px rgba(74, 50, 41, .14); }
 
 .wrap { width: min(100% - 2.5rem, var(--maxw)); margin-inline: auto; }
 .narrow { max-width: 760px; }
