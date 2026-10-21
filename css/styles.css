@@ -117,19 +117,17 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 
 /* ---------- hero ---------- */
 .hero { padding: clamp(2.5rem, 6vw, 5.5rem) 0; background: radial-gradient(1000px 500px at 85% 20%, var(--sage-wash), transparent 70%), var(--cream); }
-.hero-grid { display: grid; gap: 3rem; align-items: center; }
+.hero-inner { text-align: center; }
+.hero .lead { margin-inline: auto; }
 .eyebrow { font-family: var(--font-body); font-size: .8rem; letter-spacing: .22em; text-transform: uppercase; color: var(--sage-deep); font-weight: 600; margin: 0 0 1rem; }
+.hero h1 { font-size: clamp(2.6rem, 5.5vw, 4.2rem); }
 .hero h1 em { font-style: normal; color: var(--latte); }
 .lead { font-size: 1.2rem; color: var(--muted); max-width: 34em; }
-.actions { display: flex; flex-wrap: wrap; gap: .9rem; margin: 1.8rem 0 1.6rem; }
-.ticks { display: flex; flex-wrap: wrap; gap: .5rem 1.6rem; font-size: .95rem; color: var(--muted); }
+.actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .9rem; margin: 1.8rem 0 1.6rem; }
+.ticks { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem 1.6rem; font-size: .95rem; color: var(--muted); }
 .ticks li { position: relative; padding-left: 1.5rem; }
 .ticks li::before { content: ""; position: absolute; left: 0; top: .55em; width: .7rem; height: .7rem; background: var(--sage); clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%); }
-.hero-brand { display: flex; justify-content: center; }
 .logo-lg { width: min(100%, 460px); height: auto; }
-@media (min-width: 900px) {
-  .hero-grid { grid-template-columns: 1.1fr .9fr; }
-}
 
 /* ---------- sections ---------- */
 .section { padding: clamp(3.5rem, 7vw, 6rem) 0; }
