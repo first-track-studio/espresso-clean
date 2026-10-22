@@ -116,7 +116,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 }
 
 /* ---------- hero ---------- */
-.hero { position: relative; overflow: hidden; padding: clamp(2.5rem, 6vw, 5.5rem) 0; background: radial-gradient(1000px 500px at 85% 20%, var(--sage-wash), transparent 70%), var(--cream); }
+.hero { position: relative; overflow: hidden; padding: clamp(2.5rem, 6vw, 5.5rem) 0 clamp(1rem, 2vw, 1.5rem); background: radial-gradient(1000px 500px at 85% 20%, var(--sage-wash), transparent 70%), var(--cream); }
 .hero-inner { text-align: center; }
 .hero .lead { margin-inline: auto; }
 .eyebrow { font-family: var(--font-body); font-size: .8rem; letter-spacing: .22em; text-transform: uppercase; color: var(--sage-deep); font-weight: 600; margin: 0 0 1rem; }
@@ -235,3 +235,7 @@ legend { font-family: var(--font-head); font-size: 1.2rem; color: var(--espresso
 /* A clean kitchen along the bottom of every page; its cabinets run into the footer. */
 .kitchen { background: var(--cream); }
 .kitchen img { display: block; width: 100%; height: clamp(120px, 20vw, 264px); object-fit: cover; object-position: center bottom; }
+
+/* A small row of homes under the hero points. */
+.hero-houses { margin-top: clamp(1.5rem, 4vw, 2.5rem); }
+.hero-houses img { display: block; width: min(100%, 640px); height: auto; margin-inline: auto; }
