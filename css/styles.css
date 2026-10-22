@@ -116,7 +116,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 }
 
 /* ---------- hero ---------- */
-.hero { padding: clamp(2.5rem, 6vw, 5.5rem) 0; background: radial-gradient(1000px 500px at 85% 20%, var(--sage-wash), transparent 70%), var(--cream); }
+.hero { position: relative; overflow: hidden; padding: clamp(2.5rem, 6vw, 5.5rem) 0; background: radial-gradient(1000px 500px at 85% 20%, var(--sage-wash), transparent 70%), var(--cream); }
 .hero-inner { text-align: center; }
 .hero .lead { margin-inline: auto; }
 .eyebrow { font-family: var(--font-body); font-size: .8rem; letter-spacing: .22em; text-transform: uppercase; color: var(--sage-deep); font-weight: 600; margin: 0 0 1rem; }
@@ -176,8 +176,8 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .split { display: grid; gap: 3rem; align-items: center; }
 @media (min-width: 800px) { .split { grid-template-columns: 1.1fr .9fr; } }
 .prose p { color: var(--muted); font-size: 1.1rem; }
-.brand-panel { background: var(--white); border: 1px solid var(--line); border-radius: 28px; padding: clamp(2rem, 5vw, 3.5rem); display: grid; place-content: center; }
-.brand-panel .logo-lg { width: min(100%, 360px); }
+.brand-panel { background: var(--white); border: 1px solid var(--line); border-radius: 28px; padding: clamp(1rem, 3vw, 2rem); display: grid; place-content: center; }
+.about-illus { display: block; width: 100%; max-width: 460px; height: auto; }
 
 /* band cta */
 .band { background: var(--espresso); color: var(--cream); text-align: center; padding: clamp(3rem, 6vw, 5rem) 0; }
@@ -215,7 +215,7 @@ legend { font-family: var(--font-head); font-size: 1.2rem; color: var(--espresso
 .thanks-mark svg { width: 30px; height: 30px; }
 
 /* ---------- footer ---------- */
-.site-footer { background: var(--sand); border-top: 1px solid var(--line); padding-top: 4rem; }
+.site-footer { background: var(--sand); padding-top: 4rem; }
 .footer-grid { display: grid; gap: 2.5rem; padding-bottom: 3rem; }
 @media (min-width: 800px) { .footer-grid { grid-template-columns: 1.4fr 1fr 1fr 1.2fr; } }
 .site-footer .logo-lg { width: 220px; }
@@ -229,3 +229,9 @@ legend { font-family: var(--font-head); font-size: 1.2rem; color: var(--espresso
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; scroll-behavior: auto !important; }
 }
+
+.hero-inner { position: relative; z-index: 1; }
+
+/* A clean kitchen along the bottom of every page; its cabinets run into the footer. */
+.kitchen { background: var(--cream); }
+.kitchen img { display: block; width: 100%; height: clamp(120px, 20vw, 264px); object-fit: cover; object-position: center bottom; }
