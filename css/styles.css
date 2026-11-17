@@ -26,6 +26,7 @@
   --radius-sm: 12px;
   --shadow: 0 10px 30px -14px rgba(74, 50, 41, .25);
   --maxw: 1120px;
+  --alert: #8A3B2F;         /* form error text */
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -71,6 +72,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   cursor: pointer; transition: transform .2s, background .2s, color .2s, border-color .2s, box-shadow .2s;
 }
 .btn:hover { transform: translateY(-1px); }
+.btn:disabled { opacity: .65; cursor: progress; transform: none; }
 .btn-primary { background: var(--espresso); color: var(--cream); box-shadow: var(--shadow); }
 .btn-primary:hover { background: var(--espresso-deep); }
 .btn-ghost { border-color: var(--latte); color: var(--espresso); background: transparent; }
@@ -207,6 +209,9 @@ legend { font-family: var(--font-head); font-size: 1.2rem; color: var(--espresso
   transition: border-color .2s, box-shadow .2s;
 }
 .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--sage); box-shadow: 0 0 0 4px rgba(138,143,118,.2); }
+.form-status { margin: 0; text-align: center; font-size: .95rem; color: var(--muted); }
+.form-status:empty { display: none; }
+.form-status[data-state="error"] { color: var(--alert); font-weight: 600; }
 .fine { text-align: center; font-size: .85rem; color: var(--muted); margin: 0; }
 
 /* thanks */
@@ -239,3 +244,39 @@ legend { font-family: var(--font-head); font-size: 1.2rem; color: var(--espresso
 /* A small row of homes under the hero points. */
 .hero-houses { margin-top: clamp(1.5rem, 4vw, 2.5rem); }
 .hero-houses img { display: block; width: min(100%, 640px); height: auto; margin-inline: auto; }
+
+/* ---- quote sent: cloth wipe, then thank-you ---- */
+.form-wrap { position: relative; }
+.form { overflow: hidden; }
+.form > * { transition: opacity .3s ease; }
+.form-wrap.sending .form { transition: height .55s cubic-bezier(.4,0,.2,1); }
+.form-wrap.sending .form > * { opacity: 0; pointer-events: none; }
+.thanks-panel, .cloth { position: absolute; inset: 0; border-radius: 24px; overflow: hidden; pointer-events: none; visibility: hidden; }
+.thanks-panel { background: var(--white); border: 1px solid var(--line); box-shadow: var(--shadow); display: grid; place-content: center; text-align: center; padding: 2rem 1.5rem; clip-path: inset(0 100% 0 0); }
+.thanks-panel .thanks-inner { position: relative; max-width: 30rem; }
+.thanks-panel h2 { margin: 0 0 .6rem; }
+.thanks-panel p { color: var(--muted); margin: 0 0 1.6rem; }
+.thanks-panel .thanks-mark { margin-bottom: 1.1rem; }
+.twinkle { position: absolute; width: 16px; height: 16px; opacity: 0; transform: scale(0); }
+.twinkle svg { width: 100%; height: 100%; }
+.twinkle.t1 { top: -.3rem; left: 18%; }
+.twinkle.t2 { top: 1.4rem; right: 20%; width: 11px; height: 11px; }
+.twinkle.t3 { top: 3.4rem; left: 10%; width: 10px; height: 10px; }
+.cloth-svg { position: absolute; top: 0; left: -34%; width: 34%; height: 100%; display: block; filter: drop-shadow(4px 0 6px rgba(74,50,41,.18)); }
+
+.form-wrap.sent .thanks-panel { visibility: visible; pointer-events: auto; animation: reveal 1.15s linear forwards; }
+.form-wrap.sent .cloth { visibility: visible; }
+.form-wrap.sent .cloth-svg { animation: cloth 1.15s linear forwards; }
+.form-wrap.sent.settled .thanks-panel { clip-path: none; animation: none; }
+.form-wrap.sent .twinkle { animation: twinkle .7s ease-out 1.05s forwards; }
+.form-wrap.sent .twinkle.t2 { animation-delay: 1.2s; }
+.form-wrap.sent .twinkle.t3 { animation-delay: 1.35s; }
+@keyframes reveal { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes cloth { from { left: -34%; } to { left: 100%; } }
+@keyframes twinkle { 0% { opacity: 0; transform: scale(0) rotate(-30deg); } 60% { opacity: 1; transform: scale(1.25) rotate(8deg); } 100% { opacity: 1; transform: scale(1) rotate(0); } }
+@media (prefers-reduced-motion: reduce) {
+  .form-wrap.sending .form { transition: none; }
+  .form-wrap.sent .thanks-panel { animation: none; clip-path: none; }
+  .form-wrap.sent .cloth { display: none; }
+  .form-wrap.sent .twinkle { animation: none; opacity: 1; transform: none; }
+}

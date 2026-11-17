@@ -51,9 +51,12 @@
 
     <section class="section">
       <div class="wrap narrow">
-        <form class="form" name="quote" method="POST" action="thanks.html" data-netlify="true" netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="quote">
-          <p class="hidden"><label>Don't fill this out: <input name="bot-field"></label></p>
+        <div class="form-wrap" id="form-wrap">
+        <form class="form" id="quote-form" method="POST" action="https://api.web3forms.com/submit" data-phone="0413 789 795" data-email="espressocleanteam@gmail.com">
+          <input type="hidden" name="access_key" value="4cafa5dc-0241-4c36-8dcf-3390a8bf0ce1">
+          <input type="hidden" name="subject" value="New quote request from the espresso clean website">
+          <input type="hidden" name="from_name" value="espresso clean website">
+          <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off">
 
           <fieldset>
             <legend>Your details</legend>
@@ -123,13 +126,31 @@
             </div>
             <div class="field">
               <label for="notes">Anything we should know? <span class="muted">(pets, access, special requests)</span></label>
-              <textarea id="notes" name="notes" rows="4"></textarea>
+              <textarea id="notes" name="message" rows="4"></textarea>
             </div>
           </fieldset>
 
-          <button class="btn btn-primary btn-block" type="submit">Send my quote request</button>
+          <button class="btn btn-primary btn-block" id="quote-submit" type="submit">Send my quote request</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
           <p class="fine">We'll only use your details to reply to your enquiry.</p>
         </form>
+        <div class="thanks-panel" id="thanks-panel" aria-hidden="true">
+          <div class="thanks-inner">
+            <span class="thanks-mark"><svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0z" fill="#8A9A78"/></svg></span>
+            <span class="twinkle t1"><svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0z" fill="#8A9A78"/></svg></span><span class="twinkle t2"><svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0z" fill="#8A9A78"/></svg></span><span class="twinkle t3"><svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0z" fill="#8A9A78"/></svg></span>
+            <h2 id="thanks-title" tabindex="-1">Thank you!</h2>
+            <p>We've received your request and will be in touch soon with your quote.</p>
+            <a class="btn btn-primary" href="index.html">Back to home</a>
+          </div>
+        </div>
+        <div class="cloth" aria-hidden="true">
+            <svg class="cloth-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0 0H92C97 10 89 18 95 28C101 38 91 46 96 56C101 66 91 74 95 84C98 92 94 97 92 100H0Z" fill="#9AA087"/>
+              <path d="M0 0H92C97 10 89 18 95 28C101 38 91 46 96 56C101 66 91 74 95 84C98 92 94 97 92 100H0Z" fill="none" stroke="#6B7059" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+              <path d="M16 0V100M34 0V100M52 0V100M70 0V100" stroke="#F8F6F0" stroke-opacity=".28" stroke-width="2" vector-effect="non-scaling-stroke" fill="none"/>
+            </svg>
+        </div>
+        </div>
       </div>
     </section>
 
