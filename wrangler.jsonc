@@ -3,5 +3,5 @@
   "name": "espresso-clean",
   "compatibility_date": "2026-11-16",
   "observability": { "enabled": true },
-  "assets": { "directory": "." }
+  "assets": { "directory": ".", "not_found_handling": "404-page" }
 }
