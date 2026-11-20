@@ -280,3 +280,19 @@ legend { font-family: var(--font-head); font-size: 1.2rem; color: var(--espresso
   .form-wrap.sent .cloth { display: none; }
   .form-wrap.sent .twinkle { animation: none; opacity: 1; transform: none; }
 }
+
+/* ---- testimonials: one at a time, gentle fade (all shown if JS is off) ---- */
+.quotes { max-width: 46rem; margin: 0 auto; display: grid; }
+.testimonial { text-align: center; grid-area: 1 / 1; margin: 0 0 1.5rem; }
+.quotes:not(.is-rotating) .testimonial { grid-area: auto; }
+.testimonial .t-mark { display: block; margin: 0 auto 1.1rem; }
+.testimonial blockquote { margin: 0 0 1.4rem; }
+.testimonial blockquote p { font-family: var(--font-head); font-weight: 400; font-size: clamp(1.15rem, 2.2vw, 1.4rem); line-height: 1.6; color: var(--espresso); margin: 0; }
+.testimonial figcaption { font-size: .82rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 600; color: var(--sage-deep); }
+.quotes.is-rotating .testimonial { opacity: 0; visibility: hidden; transition: opacity .7s ease, visibility 0s linear .7s; }
+.quotes.is-rotating .testimonial.is-active { opacity: 1; visibility: visible; transition: opacity .7s ease; }
+.quote-controls { display: flex; justify-content: center; align-items: center; gap: .55rem; margin-top: .4rem; }
+.quote-dot { width: 10px; height: 10px; padding: 0; border-radius: 50%; border: 1.5px solid var(--sage-deep); background: transparent; cursor: pointer; }
+.quote-dot[aria-current="true"] { background: var(--sage-deep); }
+.quote-pause { margin-left: .6rem; font: inherit; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; color: var(--sage-deep); background: none; border: 0; cursor: pointer; padding: .3rem .4rem; }
+@media (prefers-reduced-motion: reduce) { .quotes.is-rotating .testimonial, .quotes.is-rotating .testimonial.is-active { transition: none; } }
