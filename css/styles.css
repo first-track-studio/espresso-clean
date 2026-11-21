@@ -296,3 +296,8 @@ legend { font-family: var(--font-head); font-size: 1.2rem; color: var(--espresso
 .quote-dot[aria-current="true"] { background: var(--sage-deep); }
 .quote-pause { margin-left: .6rem; font: inherit; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; color: var(--sage-deep); background: none; border: 0; cursor: pointer; padding: .3rem .4rem; }
 @media (prefers-reduced-motion: reduce) { .quotes.is-rotating .testimonial, .quotes.is-rotating .testimonial.is-active { transition: none; } }
+
+/* ---- about page photo ---- */
+.photo-panel { padding: 0; overflow: hidden; place-content: stretch; box-shadow: 0 10px 30px rgba(74, 50, 41, .10); width: min(100%, 300px); justify-self: center; }
+.about-photo { display: block; width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; }
+@media (min-width: 800px) { .photo-panel { width: 340px; } }
